@@ -6,9 +6,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
+import Todo from "./pages/Todo";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { AppContext, socket } from "./context/appContext";
+import TextEditor from "./pages/TextEditor";
 
 function App() {
     const [rooms, setRooms] = useState([]);
@@ -21,7 +23,7 @@ function App() {
     return (
         <AppContext.Provider value={{ socket, currentRoom, setCurrentRoom, members, setMembers, messages, setMessages, privateMemberMsg, setPrivateMemberMsg, rooms, setRooms, newMessages, setNewMessages }}>
             <BrowserRouter>
-                <Navigation />
+                <Navigation currentRoom={currentRoom}/>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     {!user && (
@@ -31,6 +33,8 @@ function App() {
                         </>
                     )}
                     <Route path="/chat" element={<Chat />} />
+                    <Route path="/todo" element={<Todo socket={socket} />} />
+                    <Route path='/documents/:id' element={<TextEditor />} />
                 </Routes>
             </BrowserRouter>
         </AppContext.Provider>

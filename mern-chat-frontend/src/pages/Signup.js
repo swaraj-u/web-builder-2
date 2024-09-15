@@ -29,10 +29,10 @@ function Signup() {
     async function uploadImage() {
         const data = new FormData();
         data.append("file", image);
-        data.append("upload_preset", "your-preset-here");
+        data.append("upload_preset", "ml_default");
         try {
             setUploadingImg(true);
-            let res = await fetch("https://api.cloudinary.com/v1_1/your-username-here/image/upload", {
+            let res = await fetch("cloudinary://498537957881414:fknTox8p4iTEFGhuAp4d0JhXZgM@dkrcf34sb", {
                 method: "post",
                 body: data,
             });
@@ -47,7 +47,7 @@ function Signup() {
 
     async function handleSignup(e) {
         e.preventDefault();
-        if (!image) return alert("Please upload your profile picture");
+        // if (!image) return alert("Please upload your profile picture");
         const url = await uploadImage(image);
         console.log(url);
         // signup the user
@@ -70,7 +70,7 @@ function Signup() {
                             <label htmlFor="image-upload" className="image-upload-label">
                                 <i className="fas fa-plus-circle add-picture-icon"></i>
                             </label>
-                            <input type="file" id="image-upload" hidden accept="image/png, image/jpeg" onChange={validateImg} />
+                            <input type="file" id="image-upload" hidden accept="image/png, image/jpeg" onChange={validateImg} optional/>
                         </div>
                         {error && <p className="alert alert-danger">{error.data}</p>}
                         <Form.Group className="mb-3" controlId="formBasicName">
