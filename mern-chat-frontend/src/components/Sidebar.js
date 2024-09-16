@@ -42,7 +42,7 @@ function Sidebar() {
     });
 
     function getRooms() {
-        fetch("http://localhost:5001/rooms")
+        fetch("https://web-builder-sepia-alpha.vercel.app/rooms")
             .then((res) => res.json())
             .then((data) => setRooms(data));
     }

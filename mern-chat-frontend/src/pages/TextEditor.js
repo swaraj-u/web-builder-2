@@ -31,7 +31,7 @@ export default function TextEditor() {
     const [quill, setQuill] = useState()
 
     useEffect(() => {
-      const s = io("http://localhost:5001")
+      const s = io("https://web-builder-sepia-alpha.vercel.app")
       setSocket(s)
       return () => {
         s.disconnect()
