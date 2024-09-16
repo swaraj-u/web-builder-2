@@ -20,7 +20,7 @@ function Navigation(props) {
             <Container>
                 <LinkContainer to="/">
                     <Navbar.Brand>
-                        <img src={logo} style={{ width: 50, height: 50 }} />
+                        <img src={logo} alt="" style={{ width: 50, height: 50 }} />
                     </Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -45,7 +45,7 @@ function Navigation(props) {
                             <NavDropdown
                                 title={
                                     <>
-                                        <img src={user.picture} style={{ width: 30, height: 30, marginRight: 10, objectFit: "cover", borderRadius: "50%" }} />
+                                        <img src={user.picture} alt="" style={{ width: 30, height: 30, marginRight: 10, objectFit: "cover", borderRadius: "50%" }} />
                                         {user.name}
                                     </>
                                 }
